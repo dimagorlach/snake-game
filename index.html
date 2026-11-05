@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake | Browser game</title>
+  <meta name="description" content="A classic Snake game that runs in the browser. Play with the keyboard or on-screen buttons.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <h1>Snake</h1>
+
+    <p class="scores">
+      <span>Score <strong id="score">0</strong></span>
+      <span>Best <strong id="best">0</strong></span>
+    </p>
+
+    <canvas id="board" width="400" height="400" aria-label="Snake game board"></canvas>
+
+    <p id="hint" class="hint">Press an arrow key or W, A, S, D to start. Space pauses.</p>
+
+    <div class="pad" aria-label="On-screen controls">
+      <button type="button" class="pad-up" data-dir="up" aria-label="Up">Up</button>
+      <button type="button" class="pad-left" data-dir="left" aria-label="Left">Left</button>
+      <button type="button" class="pad-right" data-dir="right" aria-label="Right">Right</button>
+      <button type="button" class="pad-down" data-dir="down" aria-label="Down">Down</button>
+    </div>
+
+    <button id="restart" class="btn" type="button">New game</button>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
