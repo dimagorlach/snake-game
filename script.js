@@ -153,6 +153,9 @@ function setDirection(name) {
 
   if (state === 'over') return;
 
+  // A direction key also resumes a paused game
+  if (state === 'paused') togglePause();
+
   // Ignore a direct reversal of the way the snake last moved.
   if (wanted.x === -dir.x && wanted.y === -dir.y) return;
 
@@ -211,8 +214,14 @@ const KEY_MAP = {
   ArrowRight: 'right', KeyD: 'right'
 };
 
+// Fallback by typed character, so WASD also works on Ukrainian and Russian layouts
+const KEY_FALLBACK = {
+  w: 'up', s: 'down', a: 'left', d: 'right',
+  'ц': 'up', 'і': 'down', 'ы': 'down', 'ф': 'left', 'в': 'right'
+};
+
 document.addEventListener('keydown', (event) => {
-  const name = KEY_MAP[event.code];
+  const name = KEY_MAP[event.code] || KEY_FALLBACK[(event.key || '').toLowerCase()];
 
   if (name) {
     event.preventDefault();
